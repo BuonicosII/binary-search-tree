@@ -1,7 +1,7 @@
 import { Tree } from "./treeclass"
 
 
-let tree = new Tree ([1, 7, 3, 2, 6, 1, 9, 5, 8]);
+let tree = new Tree ([7, 8 ,3, 5, 2, 1, 9, 4, 6, 90, 56, 34, 22, 23, 11]);
 
 
 const prettyPrint = (node, prefix = "", isLeft = true) => {
@@ -16,5 +16,9 @@ const prettyPrint = (node, prefix = "", isLeft = true) => {
       prettyPrint(node.left, `${prefix}${isLeft ? "    " : "│   "}`, true);
     }
   };
+
+prettyPrint(tree.root);
+
+tree.insert(19);
 
 prettyPrint(tree.root);
