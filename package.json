@@ -2,7 +2,7 @@
   "name": "binary-search-tree",
   "version": "1.0.0",
   "description": "Binary Search Tree project from the Odin Curriculum",
-  "main": "index.js",
+  "main": "binary-tree-search.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -12,6 +12,8 @@
   "devDependencies": {
     "eslint": "^8.51.0",
     "eslint-config-prettier": "^9.0.0",
-    "prettier": "3.0.3"
+    "prettier": "3.0.3",
+    "webpack": "^5.88.2",
+    "webpack-cli": "^5.1.4"
   }
 }
