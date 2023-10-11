@@ -30,6 +30,11 @@ class Tree {
 
     remove(value) {
         
+        function deleteNode(node, value) {
+            if (node.value === value) {
+                
+            }
+        }
     
         }
     };
