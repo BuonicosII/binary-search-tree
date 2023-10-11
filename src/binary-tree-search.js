@@ -22,3 +22,7 @@ prettyPrint(tree.root);
 tree.insert(19);
 
 prettyPrint(tree.root);
+
+tree.remove(19);
+
+prettyPrint(tree.root);
