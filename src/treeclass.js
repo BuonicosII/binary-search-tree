@@ -31,11 +31,35 @@ class Tree {
     remove(value) {
         
         function deleteNode(node, value) {
-            if (node.value === value) {
-                
+            if (node === null) {
+                return node;
             }
+
+            if (value > node.value) {
+                node.right = deleteNode(node.right, value);
+            } else if (value < node.value) {
+                node.left = deleteNode(node.left, value);
+            } else {
+                if (node.left === null) {
+                    return node.right;
+                } else if (node.right === null) {
+                    return node.left;
+                } else {
+                    let newValue = node.right;
+                    while (newValue.left !== null) {
+                        newValue = newValue.left;
+                    }
+                    
+                    deleteNode(node.right, newValue.value);
+                    node.value = newValue.value;
+                    return node;
+                } 
+            }
+            return node;
         }
-    
+
+            deleteNode(this.root, value)
+
         }
     };
 

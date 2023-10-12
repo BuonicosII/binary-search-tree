@@ -23,6 +23,6 @@ tree.insert(19);
 
 prettyPrint(tree.root);
 
-tree.remove(19);
+tree.remove(8);
 
 prettyPrint(tree.root);
