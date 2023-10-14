@@ -61,6 +61,24 @@ class Tree {
             deleteNode(this.root, value)
 
         }
+
+    find(value) {
+
+        function findNode(node, value) {
+            if (node === null) {
+                console.log("Not found");
+            } else if (value > node.value) {
+                return findNode(node.right, value);
+            } else if (value < node.value) {
+                return findNode(node.left, value);
+            } else {
+                console.log(node);
+                return;
+            }
+        }
+
+        return findNode(this.root, value);
+    }
     };
 
 export { Tree }
