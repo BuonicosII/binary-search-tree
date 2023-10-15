@@ -79,6 +79,40 @@ class Tree {
 
         return findNode(this.root, value);
     }
+
+    levelOrder(someFunction) {
+        let queue = [];
+        const secondQueue = []
+        queue.push(this.root); 
+        if (someFunction === undefined) {
+            secondQueue.push(this.root);
+            while (queue.length > 0) {
+                if (queue[0].left !== null) {
+                    queue.push(queue[0].left);
+                    secondQueue.push(queue[0].left);
+                } 
+                if (queue[0].right !== null) {
+                    queue.push(queue[0].right);
+                    secondQueue.push(queue[0].right);
+                } 
+                queue = queue.slice(1)
+            }
+
+            return secondQueue;
+        } else {
+            while (queue.length > 0) {
+                someFunction(queue[0]);
+                if (queue[0].left !== null) {
+                    queue.push(queue[0].left)
+                } 
+                if (queue[0].right !== null) {
+                    queue.push(queue[0].right)
+                } 
+                queue = queue.slice(1)
+            }
+        }
+
+    }
     };
 
 export { Tree }

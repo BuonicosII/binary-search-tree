@@ -29,3 +29,5 @@ prettyPrint(tree.root);
 
 tree.find(57);
 tree.find(19);
+
+console.log(tree.levelOrder())
