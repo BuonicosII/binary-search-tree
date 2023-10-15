@@ -19,15 +19,4 @@ const prettyPrint = (node, prefix = "", isLeft = true) => {
 
 prettyPrint(tree.root);
 
-tree.insert(19);
-
-prettyPrint(tree.root);
-
-tree.remove(8);
-
-prettyPrint(tree.root);
-
-tree.find(57);
-tree.find(19);
-
-console.log(tree.levelOrder())
+tree.inOrder(console.log)

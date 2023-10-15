@@ -159,6 +159,21 @@ class Tree {
         return levelOrderTraversal(this.root, someFunction)
     }
 
+    inOrder(someFunction) {
+
+        function inOrderTraversal(node, someFunction) {
+            if (node === null) {
+                return;
+            } else {
+                inOrderTraversal(node.left, someFunction);
+                someFunction(node.value);
+                inOrderTraversal(node.right, someFunction);
+            }
+        }
+        
+        inOrderTraversal(this.root, someFunction);
+    }
+
     };
 
 export { Tree }
