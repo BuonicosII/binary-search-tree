@@ -81,6 +81,8 @@ class Tree {
     }
 
     levelOrder(someFunction) {
+        /*
+        //iterative solution
         let queue = [];
         const secondQueue = []
         queue.push(this.root); 
@@ -111,8 +113,52 @@ class Tree {
                 queue = queue.slice(1)
             }
         }
+        */
+       //recursive solution
+       function levelOrderTraversal(node, someFunction, queue = [], array = []) {
+            if (someFunction === undefined) {
+                if (node === null) {
+                    return;
+                } else {
 
+                    array.push(node)
+                    
+                    queue.push(node.left);
+                    queue.push(node.right);
+
+                    while (queue.length > 0) {
+                        let nextNode = queue[0];
+                        queue.shift();
+                        levelOrderTraversal(nextNode, undefined, queue, array)
+
+                    }
+                    return array;
+                }
+            } else {
+                if (node === null) {
+                    return;
+                } else {
+
+                    someFunction(node)
+                    
+                    queue.push(node.left);
+                    queue.push(node.right);
+
+                    while (queue.length > 0) {
+                        let nextNode = queue[0];
+                        queue.shift();
+                        levelOrderTraversal(nextNode, someFunction, queue, array)
+
+                    }
+                    return array;
+                }
+            }
+            
+        
+        }
+        return levelOrderTraversal(this.root, someFunction)
     }
+
     };
 
 export { Tree }
