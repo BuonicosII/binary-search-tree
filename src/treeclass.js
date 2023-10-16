@@ -162,16 +162,59 @@ class Tree {
     inOrder(someFunction) {
 
         function inOrderTraversal(node, someFunction) {
-            if (node === null) {
-                return;
+            if (someFunction === undefined) {
+                const array = []
+                if (node === null) {
+                    return array;
+                } else {
+                    array.push(node.value)
+                    return inOrderTraversal(node.left).concat(array.concat(inOrderTraversal(node.right)));  
+                }
             } else {
-                inOrderTraversal(node.left, someFunction);
-                someFunction(node.value);
-                inOrderTraversal(node.right, someFunction);
+                if (node === null) {
+                    return;
+                } else {
+                    inOrderTraversal(node.left, someFunction);
+                    someFunction(node.value);
+                    inOrderTraversal(node.right, someFunction);
+                }
             }
         }
         
-        inOrderTraversal(this.root, someFunction);
+        if (someFunction === undefined) {
+            return inOrderTraversal(this.root);
+        } else {
+            inOrderTraversal(this.root, someFunction);
+        } 
+    }
+
+    preOrder(someFunction) {
+
+        function preOrderTraversal(node, someFunction) {
+            if (someFunction === undefined) {
+                const array = []
+                if (node === null) {
+                    return array;
+                } else {
+                    array.push(node.value)
+                    return array.concat(preOrderTraversal(node.left).concat(preOrderTraversal(node.right)));  
+                }
+            } else {
+                if (node === null) {
+                    return;
+                } else {
+                    someFunction(node.value);
+                    preOrderTraversal(node.left, someFunction);
+                    preOrderTraversal(node.right, someFunction);
+                }
+            }
+        }
+        
+        if (someFunction === undefined) {
+            return preOrderTraversal(this.root);
+        } else {
+            preOrderTraversal(this.root, someFunction);
+        } 
     }
 
     };
