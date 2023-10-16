@@ -66,14 +66,13 @@ class Tree {
 
         function findNode(node, value) {
             if (node === null) {
-                console.log("Not found");
+                return "Not found";
             } else if (value > node.value) {
                 return findNode(node.right, value);
             } else if (value < node.value) {
                 return findNode(node.left, value);
             } else {
-                console.log(node);
-                return;
+                return node;
             }
         }
 
@@ -246,7 +245,35 @@ class Tree {
         } 
     }
 
+    height(node) {
+
+        function findHeight(node) {
+            let count = 0;
+            if (node === null) {
+                return count;
+            } else if (node.left === null && node.right === null) {
+                return count;
+            } else {
+                count += 1;
+                let countLeft = findHeight(node.left);
+                let countRight = findHeight(node.right);
+                if (countLeft >= countRight) {
+                    return count + countLeft
+                } else {
+                    return count + countRight
+                }
+            }
+        }
+
+        if (this.find(node) === "Not found") {
+                return "Can't find the height of a node not in the tree"
+        } else {
+            const startNode = this.find(node)
+            return findHeight(startNode);
+    }
+
     };
+}
 
 export { Tree }
 
