@@ -19,4 +19,4 @@ const prettyPrint = (node, prefix = "", isLeft = true) => {
 
 prettyPrint(tree.root);
 
-tree.preOrder(console.log)
+console.log(tree.postOrder())

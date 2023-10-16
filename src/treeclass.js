@@ -217,6 +217,35 @@ class Tree {
         } 
     }
 
+    postOrder(someFunction) {
+
+        function postOrder(node, someFunction) {
+            if (someFunction === undefined) {
+                const array = []
+                if (node === null) {
+                    return array;
+                } else {
+                    array.push(node.value)
+                    return postOrder(node.left).concat(postOrder(node.right).concat(array));  
+                }
+            } else {
+                if (node === null) {
+                    return;
+                } else {
+                    postOrder(node.left, someFunction);
+                    postOrder(node.right, someFunction);
+                    someFunction(node.value);
+                }
+            }
+        }
+        
+        if (someFunction === undefined) {
+            return postOrder(this.root);
+        } else {
+            postOrder(this.root, someFunction);
+        } 
+    }
+
     };
 
 export { Tree }
