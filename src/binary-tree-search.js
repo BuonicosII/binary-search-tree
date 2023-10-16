@@ -19,4 +19,4 @@ const prettyPrint = (node, prefix = "", isLeft = true) => {
 
 prettyPrint(tree.root);
 
-console.log(tree.height(23))
+console.log(tree.depth(4))

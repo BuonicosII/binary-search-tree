@@ -273,6 +273,32 @@ class Tree {
     }
 
     };
+
+    depth(node) {
+
+        function findNodeDepth(startNode, node) {
+            let count = 0
+            if (startNode === null) {
+                return count;
+            } else if (node > startNode.value) {
+                count += 1;
+                return count + findNodeDepth(startNode.right, node);
+            } else if (node < startNode.value) {
+                count += 1;
+                return count + findNodeDepth(startNode.left, node);
+            } else {
+                return count;
+            }
+        }
+
+        if (this.find(node) === "Not found") {
+            return "Can't find the depth of a node not in the tree"
+        } else {
+            return findNodeDepth(this.root, node);
+        }
+
+
+    }
 }
 
 export { Tree }
