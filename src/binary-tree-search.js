@@ -19,4 +19,4 @@ const prettyPrint = (node, prefix = "", isLeft = true) => {
 
 prettyPrint(tree.root);
 
-console.log(tree.depth(4))
+console.log(tree.isBalanced())

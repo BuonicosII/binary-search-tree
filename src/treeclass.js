@@ -299,6 +299,43 @@ class Tree {
 
 
     }
+
+    isBalanced() {
+
+        function findHeight(node) {
+            let count = 0;
+            if (node === null) {
+                return count;
+            } else if (node.left === null && node.right === null) {
+                return count;
+            } else {
+                count += 1;
+                let countLeft = findHeight(node.left);
+                let countRight = findHeight(node.right);
+                if (countLeft >= countRight) {
+                    return count + countLeft
+                } else {
+                    return count + countRight
+                }
+            }
+        }
+
+        function checkBalance(node) {
+            if (node.left === null && node.right === null ) {
+                return true
+            } else if (Math.abs(findHeight(node.left) - findHeight(node.right)) > 1 || Math.abs(findHeight(node.right) - findHeight(node.left)) > 1) {
+                return false;
+            } else  {
+                if (checkBalance(node.left) && checkBalance(node.right)) {
+                    return true;
+                } else {
+                    return false;
+                }
+            } 
+        }
+
+        return checkBalance(this.root);
+    }
 }
 
 export { Tree }
