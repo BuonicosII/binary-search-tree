@@ -19,6 +19,9 @@ class Tree {
             } else if (value < node.value) {
                 findSmallestNode(node.left);
                 return;
+            } else if (value > node.value && node.right === null) {
+                node.right = new Node(value);
+                return;
             } else {
                 findSmallestNode(node.right);
                 return;
@@ -321,7 +324,9 @@ class Tree {
         }
 
         function checkBalance(node) {
-            if (node.left === null && node.right === null ) {
+            if (node === null) {
+                return true;
+            } else if (node.left === null && node.right === null ) {
                 return true
             } else if (Math.abs(findHeight(node.left) - findHeight(node.right)) > 1 || Math.abs(findHeight(node.right) - findHeight(node.left)) > 1) {
                 return false;

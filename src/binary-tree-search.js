@@ -15,7 +15,11 @@ const prettyPrint = (node, prefix = "", isLeft = true) => {
     if (node.left !== null) {
       prettyPrint(node.left, `${prefix}${isLeft ? "    " : "│   "}`, true);
     }
-  };
+};
+
+
+tree.insert(92);
+
 
 prettyPrint(tree.root);
 
