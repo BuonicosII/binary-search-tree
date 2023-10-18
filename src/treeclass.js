@@ -341,6 +341,15 @@ class Tree {
 
         return checkBalance(this.root);
     }
+
+    rebalance() {
+        if (this.isBalanced()) {
+            return "Tree is already balanced"
+        } else {
+            const inOrderArray = this.inOrder();
+            this.root = buildtree(inOrderArray);
+        }
+    }
 }
 
 export { Tree }

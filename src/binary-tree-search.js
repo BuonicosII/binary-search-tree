@@ -1,26 +1,5 @@
-import { Tree } from "./treeclass"
+import { driverScript } from "./driver";
+
+driverScript()
 
 
-let tree = new Tree ([7, 8 ,3, 5, 2, 1, 9, 4, 6, 90, 56, 34, 22, 23, 11]);
-
-
-const prettyPrint = (node, prefix = "", isLeft = true) => {
-    if (node === null) {
-      return;
-    }
-    if (node.right !== null) {
-      prettyPrint(node.right, `${prefix}${isLeft ? "│   " : "    "}`, false);
-    }
-    console.log(`${prefix}${isLeft ? "└── " : "┌── "}${node.value}`);
-    if (node.left !== null) {
-      prettyPrint(node.left, `${prefix}${isLeft ? "    " : "│   "}`, true);
-    }
-};
-
-
-tree.insert(92);
-
-
-prettyPrint(tree.root);
-
-console.log(tree.isBalanced())
